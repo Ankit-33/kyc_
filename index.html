@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Standard Chartered - Interactive KYC</title>
+<style>
+  body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+  }
+  .container {
+    display: flex;
+    height: 100%;
+  }
+  .left, .right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .left {
+    max-width: 50%; /* Adjust as needed */
+    border: 5px solid white; /* Add border and adjust thickness/color */
+    border-radius: 20px; /* Smoothen edges */
+    overflow: hidden; /* Ensure border-radius doesn't get overridden */
+    box-sizing: border-box; /* Ensure border size doesn't affect width */
+    padding: 20px; /* Increase space between border and image */
+  }
+  .left img {
+    max-width: calc(100% - 40px); /* Ensure image doesn't exceed container width */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove any default inline spacing */
+    border-radius: 40px; /* Smoothen edges */
+  }
+  .right {
+    background-color: rgb(215, 240, 237);
+    flex-direction: column;
+    padding: 20px; /* Add padding for better spacing */
+  }
+  .logo img {
+    width: 300px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+  }
+  .company-name{
+    font-size: 34px;
+  }
+  .tagline {
+    font-size: 24px;
+    color: #090909;
+    margin-bottom: 20px;
+  }
+  .start-button {
+    padding: 10px 30px;
+    font-size: 18px;
+    color: white;
+    background-color: #139d56;
+    border: none;
+    cursor: pointer;
+    border-radius: 30px; /* Smoothen edges */
+  }
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+    }
+    .left, .right {
+      flex: none;
+      width: 100%;
+      height: auto;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="left">
+    <img src="firstpage.jpeg" alt="Left Image">
+  </div>
+  <div class="right">
+    <div class="logo"><img src="logo.png" alt="Logo"></div>
+    <div class="company-name"></div>
+    <div class="tagline">Interactive KYC</div>
+    <a href="thirdpage.html"><button class="start-button">Start</button></a>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <title>FAQs</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      .header {
+        background-color: #3d943d;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+      }
+      .faq-heading {
+        font-size: 50px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+      }
+      .faq-container {
+        margin: 15px auto;
+      }
+      .faq-question {
+        cursor: pointer;
+        background-color: #f0f0f0;
+        padding: 10px;
+        margin-bottom: 5px;
+        border-radius: 5px;
+        position: relative;
+        border: 3px solid #000000;
+        font-size: 25px; /* Ensure positioning context */
+      }
+      .faq-answer {
+        display: none;
+        padding: 10px;
+        background-color:#3d943d;
+        border: 1px solid #fff;
+        border-radius: 5px;
+        color:#fff;
+        font-size: 20px;
+    
+      }
+      .drop-symbol {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+      }
+      /* Integration of provided CSS code */
+      .faq-container h3 {
+        font-size: 20px;
+        margin-left: 26px;
+      }
+    
+      .faq-container p {
+        padding-left: 26px;
+      }
+    
+      .faq-container .ui-closed:before {
+        font-family: monospace;
+        content: "+ ";
+        margin-left: -27px;
+      }
+    
+      .faq-container .ui-open:before {
+        font-family: monospace;
+        content: "- ";
+        margin-left: -27px;
+      }
+    
+      .faq-container h3.ui-open {
+        color: purple;
+      }
+    </style>
+    </head>
+    <body>
+    <div class="header">
+      <div class="faq-heading">FAQs</div>
+    </div>
+    <div class="faq-container">
+      <div class="faq-question" onclick="toggleAnswer('faq1')">1. What is KYC?<span class="drop-symbol">▼</span></div>
+      <div class="faq-answer" id="faq1">KYC stands for Know Your Customer. It is a process used by businesses and financial institutions to verify the identity of their clients and assess potential risks of illegal intentions such as money laundering or fraud.</div>
+    
+      <!-- Include other questions and answers here -->
+      <div class="faq-question" onclick="toggleAnswer('faq2')">2. Why do I need to complete KYC?<span class="drop-symbol">▼</span></div>
+      <div class="faq-answer" id="faq2">I need to complete KYC because it is crucial for several reasons:
+        <ul>
+          <li>Preventing identity theft</li>
+          <li>Mitigating fraud risk</li>
+          <li>Complying with regulatory requirements</li>
+          <li>Enhancing trust between businesses and their customers</li>
+        </ul>
+      </div>
+    
+      <div class="faq-question" onclick="toggleAnswer('faq3')">3. What documents are typically required for KYC?<span class="drop-symbol">▼</span></div>
+      <div class="faq-answer" id="faq3">Common documents include:
+        <ul>
+          <li>Government-issued ID (passport, driver's license)</li>
+          <li>Proof of address (utility bill, bank statement)</li>
+          <li>Tax identification number (if applicable)</li>
+          <li>Business registration documents (for businesses)</li>
+        </ul>
+      </div>
+    
+      <div class="faq-question" onclick="toggleAnswer('faq4')">4. How long does the KYC process take?<span class="drop-symbol">▼</span></div>
+      <div class="faq-answer" id="faq4">The time can vary, but it often takes a few days to complete. This depends on factors such as the institution's processes and the complexity of the information provided.</div>
+    
+      <div class="faq-question" onclick="toggleAnswer('faq5')">5. Who needs to undergo KYC?<span class="drop-symbol">▼</span></div>
+      <div class="faq-answer" id="faq5">Anyone opening a new account or engaging in a financial transaction with Evergreen Banks needs to undergo KYC. This includes individuals, businesses, and entities.</div>
+    
+      <div class="faq-question" onclick="toggleAnswer('faq6')">6. What happens if I fail to complete KYC?<span class="drop-symbol">▼</span></div>
+      <div class="faq-answer" id="faq6">Failure to complete KYC may result in limitations on your account, such as restrictions on transactions or services. Institutions have to comply with regulations and may have to freeze accounts until KYC is completed.</div>
+    
+      <div class="faq-question" onclick="toggleAnswer('faq7')">7. Is KYC the same for all institutions?<span class="drop-symbol">▼</span></div>
+      <div class="faq-answer" id="faq7">While the core principles are similar, each institution may have its specific KYC process and requirements. This can vary based on the type of institution, country, and industry.</div>
+    
+      <div class="faq-question" onclick="toggleAnswer('faq8')">8. How often do I need to update my KYC information?<span class="drop-symbol">▼</span></div>
+      <div class="faq-answer" id="faq8">The frequency of updates can vary. Institutions often require updates if there are significant changes in your personal or business information or when regulations change. Typically, a review is done every 1-3 years.</div>
+    
+      <div class="faq-question" onclick="toggleAnswer('faq9')">9. What is the purpose of KYC?<span class="drop-symbol">▼</span></div>
+      <div class="faq-answer" id="faq9">The main purposes of KYC are:
+        <ul>
+          <li>Verifying the identity of customers</li>
+          <li>Assessing potential risks for financial crimes</li>
+          <li>Ensuring compliance with regulatory requirements</li>
+          <li>Protecting both customers and institutions from fraud and illegal activities</li>
+        </ul>
+      </div>
+    
+      <div class="faq-question" onclick="toggleAnswer('faq10')">10. Is my personal information secure during KYC?<span class="drop-symbol">▼</span></div>
+      <div class="faq-answer" id="faq10">Institutions are required to adhere to strict data protection laws. They use secure processes for data collection, storage, and transmission to safeguard customer information and prevent unauthorized access.</div>
+    
+      <div class="faq-question" onclick="toggleAnswer('faq11')">11. How long does KYC verification take?<span class="drop-symbol">▼</span></div>
+      <div class="faq-answer" id="faq11">This can vary but typically ranges from a few hours to a few days. It depends on the complexity of the information provided and the verification processes of the institution.</div>
+    
+      <div class="faq-question" onclick="toggleAnswer('faq12')">12. Can I complete KYC for someone else?<span class="drop-symbol">▼</span></div>
+      <div class="faq-answer" id="faq12">Generally, KYC needs to be completed by the individual or entity itself. Third-party completion of KYC is not typically allowed due to the need to verify the identity of the actual account holder.</div>
+    
+      <div class="faq-question" onclick="toggleAnswer('faq13')">13. Can I use the same KYC for multiple institutions?<span class="drop-symbol">▼</span></div>
+      <div class="faq-answer" id="faq13">Some institutions may accept previously completed KYC documentation, especially if they are part of the same network or share information. However, this is not guaranteed, and each institution may have its own KYC requirements.</div>
+    
+      <div class="faq-question" onclick="toggleAnswer('faq14')">14. Can I update my KYC information if it changes?<span class="drop-symbol">▼</span></div>
+      <div class="faq-answer" id="faq14">Yes, you can usually update your KYC information with the institution. This might involve providing new documents or information. Evergreen Banks have online portals where you can update details.</div>
+    
+      <div class="faq-question" onclick="toggleAnswer('faq15')">15. Can I refuse to provide certain KYC information?<span class="drop-symbol">▼</span></div>
+      <div class="faq-answer" id="faq15">Yes, you may refuse to provide certain information, but the institution may limit the services or transactions available to you. Some information is legally required for compliance.</div>
+    </div>
+    
+    <script>
+    function toggleAnswer(id) {
+      var answer = document.getElementById(id);
+      if (answer.style.display === "none") {
+        answer.style.display = "block";
+      } else {
+        answer.style.display = "none";
+      }
+    }
+    </script>
+    </body>
+    </html>

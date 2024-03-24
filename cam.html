@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webcam Image Capture</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff; /* Light blue background */
+            margin: 0;
+            padding: 0;
+        }
+
+        #webcamContainer {
+            width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        #webcamVideo {
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        #captureButton, #retakeButton, #submitButton {
+            padding: 10px 20px;
+            background-color: #008000; /* Green button */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        #captureButton:hover, #retakeButton:hover, #submitButton:hover {
+            background-color: #006400; /* Darker green on hover */
+        }
+
+        #retakeButton, #submitButton {
+            display: none; /* Initially hide retake and submit buttons */
+        }
+    </style>
+</head>
+<body>
+    <div id="webcamContainer">
+        <video id="webcamVideo" autoplay></video>
+        <button id="captureButton">Capture Image</button>
+        <button id="retakeButton">Retake</button>
+        <button id="submitButton">Submit</button>
+        <canvas id="canvas" style="display: none;"></canvas>
+    </div>
+
+    <script>
+        let imageData = null;
+
+        // Access webcam and display video
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then(stream => {
+                const video = document.getElementById('webcamVideo');
+                video.srcObject = stream;
+            })
+            .catch(error => {
+                console.error('Error accessing webcam:', error);
+            });
+
+        // Capture image from webcam
+        document.getElementById('captureButton').addEventListener('click', () => {
+            const video = document.getElementById('webcamVideo');
+            const canvas = document.getElementById('canvas');
+            const context = canvas.getContext('2d');
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            context.drawImage(video, 0, 0, canvas.width, canvas.height);
+            imageData = canvas.toDataURL('image/png');
+            // Freeze video
+            video.pause();
+            // Show retake and submit buttons
+            document.getElementById('retakeButton').style.display = 'inline-block';
+            document.getElementById('submitButton').style.display = 'inline-block';
+            // Hide capture button
+            document.getElementById('captureButton').style.display = 'none';
+        });
+
+        // Retake image
+        document.getElementById('retakeButton').addEventListener('click', () => {
+            const video = document.getElementById('webcamVideo');
+            // Resume video
+            video.play();
+            // Hide retake and submit buttons
+            document.getElementById('retakeButton').style.display = 'none';
+            document.getElementById('submitButton').style.display = 'none';
+            // Show capture button
+            document.getElementById('captureButton').style.display = 'inline-block';
+        });
+
+        // Submit captured image
+        document.getElementById('submitButton').addEventListener('click', () => {
+            if (imageData) {
+                // You can now use "imageData" to submit the image data to your server or perform other actions
+                console.log('Image submitted:', imageData);
+                // Redirect to thirdpage.html
+                window.location.href = 'upload.html';
+            }
+        });
+    </script>
+</body>
+</html>
+

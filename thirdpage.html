@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff; /* Light blue background */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+        }
+
+        .dashboard {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 20%; /* Occupying left 20% of the page */
+            height: 100vh; /* Full height of the viewport */
+            background-color: #3d943d; /* Dark background for the dashboard */
+            padding: 20px; /* Vertical and horizontal padding */
+            box-sizing: border-box; /* Include padding and border in the element's total width and height */
+            font-size: 200%; /* Increased text size */
+            display: flex; /* Use flexbox */
+            flex-direction: column; /* Stack items vertically */
+            justify-content: flex-start; /* Align items vertically to the top */
+            align-items: center; /* Align items horizontally to the center */
+        }
+
+        .dashboard a {
+            display: block;
+            color: #f6f3f3; /* White color for links */
+            text-decoration: none;
+            margin-bottom: 15px; /* Spacing between links */
+            text-align: center; /* Center text */
+        }
+
+        .dashboard a:hover {
+            background-color: #555; /* Darker background on hover */
+        }
+
+        form {
+            position: fixed;
+            top: 0;
+            width: 60%; /* Covering 60% of the screen */
+            top: 50%; /* Aligning form vertically */
+            right: 0; /* Aligning form to the right border */
+            transform: translateY(-50%); /* Centering the form vertically */
+            padding: 30px; /* Increased padding */
+            border: 15px solid #ccc;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            background-color: #f0fff0; /* Light green form background */
+        }
+
+        /* Adjustments for smaller screens */
+        @media screen and (max-width: 768px) {
+            form {
+                left: 0; /* On smaller screens, align form to the left */
+                width: 100%; /* Covering full width */
+            }
+        }
+
+        label {
+            display: block;
+            margin-top: 5px;
+            color: #000080; /* Dark blue label text */
+        }
+
+        input[type="text"],
+        input[type="date"],
+        input[type="file"],
+        select {
+            width: calc(100% - 22px); /* Adjusted width */
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .next-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #3d943d; /* Green submit button */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .next-button:hover {
+            background-color: #347d34; /* Dark green hover color */
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <a href="#">EVERGREEN</a>
+        <a href="#">Home</a>
+        <a href="#">About Us</a>
+        <a href="#">Contact Us</a>
+        <a href="faq.html">FAQ</a>
+    </div>
+
+    <form id="employeeForm" action="cam.html">
+        <label for="name">Name:</label>
+        <input type="text" placeholder="Shaik Afsar Basha" id="name" name="name" required><br><br>
+
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" required onchange="convertDateFormat(this)"><br><br>
+
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" required><br><br>
+
+        <label for="pan">PAN Card Number:</label>
+        <input type="text" id="pan" name="pan" required><br><br>
+
+        <label for="adhaar">Adhaar Card Number:</label>
+        <input type="text" id="adhaar" name="adhaar" required><br><br>
+
+        <label for="signature">Signature:</label>
+        <input type="file" id="signature" name="signature" accept="image/*" required><br><br>
+
+        <label for="income">Income Range:</label>
+        <select id="income" name="income" required>
+            <option value="">Select</option>
+            <option value="0-20000">0-20000</option>
+            <option value="20000-50000">20000-50000</option>
+            <option value="50000-100000">50000-100000</option>
+            <option value="100000-200000">100000-200000</option>
+            <option value="200000-500000">200000-500000</option>
+            <option value="500000-1000000">500000-1000000</option>
+        </select><br><br>
+
+        <label for="employeeType">Employee Type:</label>
+        <input type="text" id="employeeType" name="Employee" required><br><br>
+
+        <a href="cam.html" class="next-button">NEXT</a>
+    </form>
+
+    <script>
+        function convertDateFormat(input) {
+            const date = new Date(input.value);
+            input.value = date.toISOString().split('T')[0];
+        }
+    </script>
+</body>
+</html>
